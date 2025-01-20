@@ -1,8 +1,8 @@
 @register
 Feature: Register
   Scenario: User Success Register
-    Given the user is on the login page
-    And the user click don't have account? Register
-    When the user input valid data
-    And the user click register
-    Then the user is redirected to login
+    Given User is on the login page
+    And User click don't have account? Register
+    When User input valid data
+    And User click register
+    Then User is redirected to login
