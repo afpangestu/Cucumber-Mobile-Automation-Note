@@ -23,7 +23,7 @@ public class registerStep {
     public static LoginActivity login;
 
     @Given("the user is on the login page")
-    public void openTheApp() throws URISyntaxException, MalformedURLException {
+    public void theUserIsOnTheLoginPage() throws URISyntaxException, MalformedURLException {
         options = new UiAutomator2Options();
         options.setDeviceName("Pixel 9 Pro")
                 .setApp("src/test/java/apk/Note_Binar-debug.apk") // running appium in Terminal of IDE
@@ -46,7 +46,7 @@ public class registerStep {
     }
 
     @When("the user input valid data")
-    public void inputValidData() {
+    public void theUserInputValidData() {
         // input data
         register = new RegisterActivity(driver);
         register.setUsername("ajifauzi");
@@ -56,14 +56,14 @@ public class registerStep {
     }
 
     @And("the user click register")
-    public void clickRegister() {
+    public void theUserClickRegister() {
         // click register button
         register = new RegisterActivity(driver);
         register.clickRegister();
     }
 
     @Then("the user is redirected to login")
-    public void userSuccessfullyRegister() {
+    public void theUserIsRedirectedToLogin() {
         // assertion
         login = new LoginActivity(driver);
         Assert.assertTrue(login.loginTitle());
