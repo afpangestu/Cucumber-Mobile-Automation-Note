@@ -1,7 +1,7 @@
 Feature: Register
-  Scenario: Success Register
-    Given Open the App
-    And Click Don't have account? Register
-    When Input valid data
-    And Click register
-    Then User successfully register
+  Scenario: User Success Register
+    Given the user is on the login page
+    And the user click don't have account? Register
+    When the user input valid data
+    And the user click register
+    Then the user is redirected to login

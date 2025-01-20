@@ -22,7 +22,7 @@ public class registerStep {
     public static RegisterActivity register;
     public static LoginActivity login;
 
-    @Given("Open the App")
+    @Given("the user is on the login page")
     public void openTheApp() throws URISyntaxException, MalformedURLException {
         options = new UiAutomator2Options();
         options.setDeviceName("Pixel 9 Pro")
@@ -35,7 +35,7 @@ public class registerStep {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
-    @And("Click Don't have account? Register")
+    @And("the user click don't have account? Register")
     public void clickDontHaveAccountRegister() {
         // click dont have account? register
         login = new LoginActivity(driver);
@@ -45,7 +45,7 @@ public class registerStep {
         Assert.assertTrue(register.registerTitle());
     }
 
-    @When("Input valid data")
+    @When("the user input valid data")
     public void inputValidData() {
         // input data
         register = new RegisterActivity(driver);
@@ -55,14 +55,14 @@ public class registerStep {
         register.setConfirmPassword("ajifauzi123");
     }
 
-    @And("Click register")
+    @And("the user click register")
     public void clickRegister() {
         // click register button
         register = new RegisterActivity(driver);
         register.clickRegister();
     }
 
-    @Then("User successfully register")
+    @Then("the user is redirected to login")
     public void userSuccessfullyRegister() {
         // assertion
         login = new LoginActivity(driver);
