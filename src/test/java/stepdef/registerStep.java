@@ -1,28 +1,76 @@
 package stepdef;
 
+import activity.LoginActivity;
+import activity.RegisterActivity;
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
+
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.time.Duration;
 
 public class registerStep {
+    public static UiAutomator2Options options;
+    public static AppiumDriver driver;
+    public static String baseUrl = "http://127.0.0.1:4723";
+    public static RegisterActivity register;
+    public static LoginActivity login;
+
     @Given("Open the App")
-    public void openTheApp() {
+    public void openTheApp() throws URISyntaxException, MalformedURLException {
+        options = new UiAutomator2Options();
+        options.setDeviceName("Pixel 9 Pro")
+                .setApp("src/test/java/apk/Note_Binar-debug.apk") // running appium in Terminal of IDE
+                .setPlatformVersion("14")
+                .setPlatformName("Android");
+
+        driver = new AppiumDriver(new URI(baseUrl).toURL(), options);
+        // wait for elements using implicit wait (without plugin "element-wait")
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     @And("Click Don't have account? Register")
     public void clickDontHaveAccountRegister() {
+        // click dont have account? register
+        login = new LoginActivity(driver);
+        login.clickRegister();
+        // assertion
+        register = new RegisterActivity(driver);
+        Assert.assertTrue(register.registerTitle());
     }
 
     @When("Input valid data")
     public void inputValidData() {
+        // input data
+        register = new RegisterActivity(driver);
+        register.setUsername("ajifauzi");
+        register.setEmail("ajifauzi@mail.com");
+        register.setPassword("ajifauzi123");
+        register.setConfirmPassword("ajifauzi123");
     }
 
     @And("Click register")
     public void clickRegister() {
+        // click register button
+        register = new RegisterActivity(driver);
+        register.clickRegister();
     }
 
     @Then("User successfully register")
     public void userSuccessfullyRegister() {
+        // assertion
+        login = new LoginActivity(driver);
+        Assert.assertTrue(login.loginTitle());
+        System.out.println("== TEST REGISTER SUCCESS ==");
+        // driver quit
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
