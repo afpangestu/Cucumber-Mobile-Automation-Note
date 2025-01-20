@@ -10,6 +10,11 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.time.Duration;
+
 public class noteStep {
     public static UiAutomator2Options options;
     public static AppiumDriver driver;
@@ -18,7 +23,17 @@ public class noteStep {
     public static HomeActivity home;
 
     @Given("User already logged in")
-    public void userAlreadyLoggedIn() {
+    public void userAlreadyLoggedIn() throws URISyntaxException, MalformedURLException {
+        options = new UiAutomator2Options();
+        options.setDeviceName("Pixel 9 Pro")
+                .setApp("src/test/java/apk/Note_Binar-debug.apk") // running appium in Terminal of IDE
+                .setPlatformVersion("14")
+                .setPlatformName("Android")
+                .noReset();
+
+        driver = new AppiumDriver(new URI(baseUrl).toURL(), options);
+        // wait for elements using implicit wait (without plugin "element-wait")
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         // login
         login = new LoginActivity(driver);
         login.setUsername("ajifauzi");
