@@ -28,7 +28,8 @@ public class loginStep {
         options.setDeviceName("Pixel 9 Pro")
                 .setApp("src/test/java/apk/Note_Binar-debug.apk") // running appium in Terminal of IDE
                 .setPlatformVersion("14")
-                .setPlatformName("Android");
+                .setPlatformName("Android")
+                .noReset();
 
         driver = new AppiumDriver(new URI(baseUrl).toURL(), options);
         // wait for elements using implicit wait (without plugin "element-wait")
