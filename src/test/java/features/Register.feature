@@ -1,3 +1,4 @@
+@register
 Feature: Register
   Scenario: User Success Register
     Given the user is on the login page
