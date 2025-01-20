@@ -4,11 +4,14 @@ import activity.LoginActivity;
 import activity.RegisterActivity;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import io.cucumber.java.BeforeStep;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.junit.BeforeClass;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -28,8 +31,7 @@ public class registerStep {
         options.setDeviceName("Pixel 9 Pro")
                 .setApp("src/test/java/apk/Note_Binar-debug.apk") // running appium in Terminal of IDE
                 .setPlatformVersion("14")
-                .setPlatformName("Android")
-                .noReset();
+                .setPlatformName("Android");
 
         driver = new AppiumDriver(new URI(baseUrl).toURL(), options);
         // wait for elements using implicit wait (without plugin "element-wait")

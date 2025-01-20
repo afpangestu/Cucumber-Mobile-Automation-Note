@@ -22,8 +22,8 @@ public class loginStep {
     public static LoginActivity login;
     public static HomeActivity home;
 
-    @Given("the user is on the login page")
-    public void theUserIsOnTheLoginPage() throws URISyntaxException, MalformedURLException {
+    @Given("the user has an existing account")
+    public void theUserHasanExistingAccount() throws URISyntaxException, MalformedURLException {
         options = new UiAutomator2Options();
         options.setDeviceName("Pixel 9 Pro")
                 .setApp("src/test/java/apk/Note_Binar-debug.apk") // running appium in Terminal of IDE
