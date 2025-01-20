@@ -22,7 +22,7 @@ public class loginStep {
     public static LoginActivity login;
     public static HomeActivity home;
 
-    @Given("the user has an existing account")
+    @Given("User has an existing account")
     public void theUserHasanExistingAccount() throws URISyntaxException, MalformedURLException {
         options = new UiAutomator2Options();
         options.setDeviceName("Pixel 9 Pro")
@@ -36,7 +36,7 @@ public class loginStep {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
-    @When("the user enters username and password")
+    @When("User enters username and password")
     public void theUserEntersUsernameAndPassword() {
         // input data
         login = new LoginActivity(driver);
@@ -44,14 +44,14 @@ public class loginStep {
         login.setPassword("ajifauzi123");
     }
 
-    @And("the user click login button")
+    @And("User click login button")
     public void theUserClickLoginButton() {
         // click login button
         login = new LoginActivity(driver);
         login.clickLogin();
     }
 
-    @Then("the user is redirected to home page")
+    @Then("User is redirected to home page")
     public void theUserIsRedirectedToHome(){
         home = new HomeActivity(driver);
         // assertion
