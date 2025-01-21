@@ -12,3 +12,10 @@ Feature: CRUD Note
     And User edit title and description
     And User click update button
     Then The note should be updated
+
+  Scenario: Success Delete Note
+    Given Notes are already on the homepage
+    When User click delete button
+    And Show the dialog confirmation
+    And User click delete
+    Then The note should be deleted
