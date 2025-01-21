@@ -49,7 +49,6 @@ public class noteStep {
 
     @When("User click floating action button add")
     public void userClickFloatingActionButtonAdd() {
-        home = new HomeActivity(driver);
         home.clickAddNote();
         // assertion the dialog
         Assert.assertTrue(home.tambahCatatanTxtDisplayed());
@@ -57,21 +56,18 @@ public class noteStep {
 
     @And("User enters title and description")
     public void userEntersTitleAndDescription() {
-        home = new HomeActivity(driver);
         home.setJudulEt("this is title note");
         home.setCatatanEt("this is content of note");
     }
 
     @And("User click save button")
     public void userClickSaveButton() {
-        home = new HomeActivity(driver);
         home.clickSimpan();
     }
 
     @Then("The note should be on the home page")
     public void theNoteShouldBeOnTheHomePage() {
         // assert list note after adding
-        home = new HomeActivity(driver);
         Assert.assertTrue(home.listNoteDisplayed());
         System.out.println("== TEST ADD NOTE SUCCESS ==");
     }
@@ -81,19 +77,16 @@ public class noteStep {
     @Given("Notes are already on the homepage")
     public void notesAreAlreadyOnTheHomepage() {
         // assert list of note
-        home = new HomeActivity(driver);
         Assert.assertTrue(home.listNoteDisplayed());
     }
 
     @When("User click edit button")
     public void userClickEditButton() {
-        home = new HomeActivity(driver);
         home.clickEdit(); // edit on the first item
     }
 
     @And("User edit title and description")
     public void userEditTitleAndDescription() {
-        home = new HomeActivity(driver);
         // assert the edit dialog
         Assert.assertTrue(home.editCatatanTxtDisplayed());
         // fill the EditText
@@ -103,37 +96,36 @@ public class noteStep {
 
     @And("User click update button")
     public void userClickUpdateButton() {
-        home = new HomeActivity(driver);
         home.clickPerbarui();
     }
 
     @Then("The note should be updated")
     public void theNoteShouldBeUpdated() {
-        home = new HomeActivity(driver);
         // assert list note after edit
         Assert.assertTrue(home.listNoteDisplayed());
         System.out.println("== TEST EDIT NOTE SUCCESS ==");
-        // driver quit
-        if (driver != null) {
-            driver.quit();
-        }
     }
 
     /* Delete Note */
 
     @When("User click delete button")
     public void userClickDeleteButton() {
+        home.clickDelete(); // delete on the first item
     }
 
     @And("Show the dialog confirmation")
     public void showTheDialogConfirmation() {
+        // assert the delete dialog
+        Assert.assertTrue(home.deleteAlertDisplayed());
     }
 
     @And("User click delete")
     public void userClickDelete() {
+        home.clickDeleteYesBtn();
     }
 
     @Then("The note should be deleted")
     public void theNoteShouldBeDeleted() {
+        System.out.println("== TEST DELETE NOTE SUCCESS ==");
     }
 }
