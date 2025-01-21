@@ -118,4 +118,22 @@ public class noteStep {
             driver.quit();
         }
     }
+
+    /* Delete Note */
+
+    @When("User click delete button")
+    public void userClickDeleteButton() {
+    }
+
+    @And("Show the dialog confirmation")
+    public void showTheDialogConfirmation() {
+    }
+
+    @And("User click delete")
+    public void userClickDelete() {
+    }
+
+    @Then("The note should be deleted")
+    public void theNoteShouldBeDeleted() {
+    }
 }
