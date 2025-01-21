@@ -22,6 +22,8 @@ public class noteStep {
     public static LoginActivity login;
     public static HomeActivity home;
 
+    /* Add Note */
+
     @Given("User already logged in")
     public void userAlreadyLoggedIn() throws URISyntaxException, MalformedURLException {
         options = new UiAutomator2Options();
@@ -66,11 +68,54 @@ public class noteStep {
         home.clickSimpan();
     }
 
-    @Then("the note should be on the home page")
+    @Then("The note should be on the home page")
     public void theNoteShouldBeOnTheHomePage() {
         // assert list note after adding
         home = new HomeActivity(driver);
         Assert.assertTrue(home.listNoteDisplayed());
         System.out.println("== TEST ADD NOTE SUCCESS ==");
+    }
+
+    /* Edit Note */
+
+    @Given("Notes are already on the homepage")
+    public void notesAreAlreadyOnTheHomepage() {
+        // assert list of note
+        home = new HomeActivity(driver);
+        Assert.assertTrue(home.listNoteDisplayed());
+    }
+
+    @When("User click edit button")
+    public void userClickEditButton() {
+        home = new HomeActivity(driver);
+        home.clickEdit(); // edit on the first item
+    }
+
+    @And("User edit title and description")
+    public void userEditTitleAndDescription() {
+        home = new HomeActivity(driver);
+        // assert the edit dialog
+        Assert.assertTrue(home.editCatatanTxtDisplayed());
+        // fill the EditText
+        home.setJudulEt("this judul is after edit");
+        home.setCatatanEt("this catatan is after edit");
+    }
+
+    @And("User click update button")
+    public void userClickUpdateButton() {
+        home = new HomeActivity(driver);
+        home.clickPerbarui();
+    }
+
+    @Then("The note should be updated")
+    public void theNoteShouldBeUpdated() {
+        home = new HomeActivity(driver);
+        // assert list note after edit
+        Assert.assertTrue(home.listNoteDisplayed());
+        System.out.println("== TEST EDIT NOTE SUCCESS ==");
+        // driver quit
+        if (driver != null) {
+            driver.quit();
+        }
     }
 }
