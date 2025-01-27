@@ -37,6 +37,13 @@
             <version>9.3.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.qase</groupId>
+            <artifactId>qase-cucumber-v7-reporter</artifactId>
+            <version>4.0.0</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
 </project>
