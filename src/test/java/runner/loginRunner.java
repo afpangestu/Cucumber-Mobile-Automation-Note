@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = {"src/test/java/features/Login.feature"},
         glue = {"stepdef"},
-        plugin = {"pretty", "html:target/HTML_report.html"}
+        plugin = {"io.qase.cucumber7.QaseEventListener", "pretty", "html:target/HTML_report.html"}
 )
 
 public class loginRunner { }
