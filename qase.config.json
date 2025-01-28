@@ -1,0 +1,31 @@
+{
+  "mode": "testops",
+  "fallback": "off",
+  "debug": true,
+  "report": {
+    "driver": "local",
+    "connection": {
+      "local": {
+        "path": "./build/qase-report",
+        "format": "json"
+      }
+    }
+  },
+  "testops": {
+    "api": {
+      "token": "0e8583b933e09e087796e13d298ef2eef067fc6534fbbd8e835e64cc887dd59e",
+      "host": "qase.io"
+    },
+    "run": {
+      "title": "Test Run Note",
+      "description": "Test run note",
+      "complete": true
+    },
+    "defect": true,
+    "project": "NM",
+    "batch": {
+      "size": 200
+    },
+    "useV2": false
+  }
+}
