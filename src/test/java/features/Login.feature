@@ -15,7 +15,7 @@ Feature: Login
   @negative
   @QaseSuite=Login
   @QaseFields={"description":"User_failed_login","preconditions":"User_has_an_existing_account","severity":"major","priority":"high"}
-  Scenario Outline: User Failed Login Using Empty
+  Scenario Outline: User Failed Login Using Invalid Credentials
     Given User has an existing account
     When User enters invalid <username> and <password>
     And User click login button
