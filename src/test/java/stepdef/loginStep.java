@@ -36,12 +36,20 @@ public class loginStep {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
-    @When("User enters username and password")
-    public void theUserEntersUsernameAndPassword() {
+    @When("^User enters valid (.*) and (.*)$")
+    public void theUserEntersValidUsernameAndPassword(String username, String password) {
         // input data
         login = new LoginActivity(driver);
-        login.setUsername("ajifauzi");
-        login.setPassword("ajifauzi123");
+        login.setUsername(username);
+        login.setPassword(password);
+    }
+
+    @When("^User enters invalid (.*) and (.*)$")
+    public void theUserEntersInvalidUsernameAndPassword(String username, String password) {
+        // input data
+        login = new LoginActivity(driver);
+        login.setUsername(username);
+        login.setPassword(password);
     }
 
     @And("User click login button")
@@ -61,6 +69,19 @@ public class loginStep {
         // driver quit
         if (driver != null) {
             driver.quit();
+        }
+    }
+
+    @Then("^User failed login and show message error (.*)$")
+    public void userFailedLoginAndShowMessageError(String scenario) {
+        login = new LoginActivity(driver);
+        switch (scenario) {
+            case "blank" -> {
+                Assert.assertTrue(login.getUsernameEmptyMsg());
+                Assert.assertTrue(login.getPasswordEmptyMsg());
+            }
+            case "blank_pass" -> Assert.assertTrue(login.getPasswordEmptyMsg());
+            case "wrong_user_pass" -> Assert.assertTrue(login.getToastMsg());
         }
     }
 }
