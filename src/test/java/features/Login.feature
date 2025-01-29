@@ -19,9 +19,9 @@ Feature: Login
     Given User has an existing account
     When User enters invalid <username> and <password>
     And User click login button
-    Then User is redirected to home page
+    Then User failed login and show message error <scenario>
     Examples:
-      | username | password |
-      |          |          |
-      | ajifauzi |          |
-      | ajifauzi | ajifauzi1321 |
+      | username | password | scenario |
+      |          |          | blank    |
+      | ajifauzi |          | blank_pass |
+      | ajifauzi | ajifauzi1321 | wrong_user_pass |
