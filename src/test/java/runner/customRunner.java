@@ -1,10 +1,9 @@
 package runner;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
+import io.cucumber.testng.CucumberOptions;
+import org.testng.annotations.Test;
 
-@RunWith(Cucumber.class)
+@Test
 @CucumberOptions(
         features = {"src/test/java/features"},
         glue = {"stepdef"},
