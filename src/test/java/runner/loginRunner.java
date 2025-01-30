@@ -1,10 +1,10 @@
 package runner;
 
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
+import org.testng.annotations.Test;
 
-@RunWith(Cucumber.class)
+@Test
 @CucumberOptions(
         features = {"src/test/java/features/Login.feature"},
         glue = {"stepdef"},
@@ -12,4 +12,4 @@ import org.junit.runner.RunWith;
         plugin = {"io.qase.cucumber7.QaseEventListener", "pretty", "html:target/HTML_report.html"}
 )
 
-public class loginRunner { }
+public class loginRunner extends AbstractTestNGCucumberTests { }
