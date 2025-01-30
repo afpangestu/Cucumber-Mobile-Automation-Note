@@ -6,10 +6,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = {"src/test/java/features/Register.feature", "src/test/java/features/Login.feature"},
+        features = {"src/test/java/features"},
         glue = {"stepdef"},
-        tags = "@register or @login",
-        plugin = {"pretty", "html:target/HTML_report.html"}
+//        tags = "@register or @login or @note",
+        plugin = {"pretty", "html:target/HTML_report.html", "json:target/cucumber_report.json"}
 )
 
 public class customRunner { }
