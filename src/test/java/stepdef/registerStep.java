@@ -4,14 +4,11 @@ import activity.LoginActivity;
 import activity.RegisterActivity;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
-import io.cucumber.java.BeforeStep;
-import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
-import org.junit.BeforeClass;
+import org.testng.Assert;
 
 import java.net.MalformedURLException;
 import java.net.URI;
