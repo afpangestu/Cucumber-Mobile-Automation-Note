@@ -3,9 +3,10 @@
 <suite name="All Test">
     <test name="Note Test">
         <classes>
-            <class name="runner.registerRunner"/>
-            <class name="runner.loginRunner"/>
-            <class name="runner.noteRunner"/>
+            <class name="runner.customRunner"/>
+<!--            <class name="runner.registerRunner"/>-->
+<!--            <class name="runner.loginRunner"/>-->
+<!--            <class name="runner.noteRunner"/>-->
         </classes>
     </test>
 </suite>
