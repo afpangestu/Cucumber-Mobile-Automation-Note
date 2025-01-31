@@ -7,8 +7,7 @@ import org.testng.annotations.Test;
 @CucumberOptions(
         features = {"src/test/java/features"},
         glue = {"stepdef"},
-//        tags = "@register or @login or @note",
-        plugin = {"pretty", "html:target/HTML_report.html", "json:target/cucumber_report.json"}
+        plugin = {"io.qase.cucumber7.QaseEventListener", "pretty", "html:target/HTML_report.html", "json:target/cucumber_report.json"}
 )
 
 public class customRunner { }
