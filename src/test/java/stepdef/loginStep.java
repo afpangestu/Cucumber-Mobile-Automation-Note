@@ -66,10 +66,6 @@ public class loginStep {
         Assert.assertTrue(home.welcomeTxt());
         Assert.assertTrue(home.homeTxt());
         System.out.println("== TEST LOGIN SUCCESS ==");
-        // driver quit
-        if (driver != null) {
-            driver.quit();
-        }
     }
 
     @Then("^User failed login and show message error (.*)$")
