@@ -36,11 +36,11 @@ public class noteStep {
         driver = new AppiumDriver(new URI(baseUrl).toURL(), options);
         // wait for elements using implicit wait (without plugin "element-wait")
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        // login
-        login = new LoginActivity(driver);
-        login.setUsername("ajifauzi");
-        login.setPassword("ajifauzi123");
-        login.clickLogin();
+//        // login
+//        login = new LoginActivity(driver);
+//        login.setUsername("ajifauzi");
+//        login.setPassword("ajifauzi123");
+//        login.clickLogin();
         // assertion
         home = new HomeActivity(driver);
         Assert.assertTrue(home.welcomeTxt());
