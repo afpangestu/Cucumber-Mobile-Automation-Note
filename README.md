@@ -69,9 +69,8 @@ Ensure that you have the following tools and technologies installed on your mach
 - [Maven](https://maven.apache.org/install.html)
 - [Appium](https://appium.io/docs/en/latest/quickstart/)
 - [Cucumber](https://cucumber.io/docs/installation/)
-- [Chrome driver](https://chromedriver.chromium.org)
 - [IntelliJ IDE](https://www.jetbrains.com/idea/download/)
-  <br><br>Note: Make sure to download the relavent Chrome driver version for your chrome browser match, and put it into project directory.
+  <br><br>Note: Make sure to download the relavent tools version for your testing environments.
 
 ## Usage
 
